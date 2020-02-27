@@ -18,47 +18,56 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
-    color: "black",
+    color: "#5B5B5B",
     marginTop: "1vw",
-    display: "flex"
+    display: "flex",
+    width: "-webkit-fill-available"
   },
   logout: {
-    height: "20px",
-    width: "20px",
-    marginLeft: "1vw"
+    height: "15px",
+    width: "15px",
+    marginLeft: "1vw",
+    marginRight: "1vw"
   },
   profile: {
-    height: "30px",
-    width: "30px"
+    height: "32px",
+    width: "32px",
+    marginRight: "1vw"
   },
   bigLogo: {
     height: "auto",
-    width: "150px",
+    width: "129px",
     borderRadius: "0px",
     margin: "1vw"
   },
   smallLogo: {
     height: "auto",
-    width: "70px",
+    width: "72px",
     borderRadius: "0px",
     marginLeft: "10px",
     objectFit: "contain"
   },
   appBar: {
-    backgroundColor: "white"
+    backgroundColor: "white",
+    height: "64px",
+    zIndex: 1
   },
   userDetails: {
     color: "black",
-    textAlign: "end"
+    textAlign: "end",
+    padding: "0px"
   },
   username: {
-    color: "grey",
-    margin: "1vw"
+    color: "#727272",
+    margin: "1vw",
+    marginBottom: "0px",
+    fontSize: "19px"
   },
   companyName: {
-    color: "grey",
+    color: "#727272",
     margin: "1vw",
-    marginTop: "0vw"
+    marginTop: "0vw",
+    fontSize: "14px"
   }
 }));
 
