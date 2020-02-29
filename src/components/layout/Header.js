@@ -75,7 +75,7 @@ const Header = props => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.appBar}>
+    <AppBar variant="permanent" className={classes.appBar}>
       <Toolbar>
         <Avatar
           edge="start"
