@@ -6,13 +6,6 @@ const useStyles = makeStyles(theme => ({}));
 
 const DatePicker = props => {
   const classes = useStyles();
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2014-08-18T21:11:54")
-  );
-
-  const handleDateChange = date => {
-    setSelectedDate(date);
-  };
 
   return (
     <KeyboardDatePicker
@@ -22,8 +15,7 @@ const DatePicker = props => {
       margin="normal"
       id="date-picker-inline"
       label="Date picker inline"
-      value={selectedDate}
-      onChange={handleDateChange}
+      value={props.date}
       KeyboardButtonProps={{
         "aria-label": "change date"
       }}

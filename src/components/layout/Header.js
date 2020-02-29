@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     backgroundColor: "white",
     height: "64px",
-    zIndex: 1
+    zIndex: 2
   },
   userDetails: {
     color: "black",

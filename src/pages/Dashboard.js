@@ -19,8 +19,8 @@ import DatePicker from "components/DatePicker";
 import Dropdown from "components/Dropdown";
 import DropdownMenu from "components/DropdownMenu";
 import DetailCard from "components/DetailCard";
+import ProductCard from "components/ProductCard";
 import trollImage from "assets/troll.svg";
-import ProductCard from "../components/ProductCard";
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -42,6 +42,12 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "1vw"
   },
   period: { display: "flex" },
+  periodDropdown: {
+    position: "absolute",
+    zIndex: 1,
+    right: 0,
+    marginRight: "24px"
+  },
   dropdownPeriodIcon: {
     color: "#8B8B8B",
     marginRight: "1vw"
@@ -60,7 +66,8 @@ const useStyles = makeStyles(theme => ({
     paddingRight: "2vw"
   },
   applyButton: {
-    marginTop: "1vw"
+    marginTop: "1vw",
+    backgroundColor: "#37B04C"
   },
   marketInsights: {
     marginTop: "2vw",
@@ -124,12 +131,54 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = props => {
   const classes = useStyles();
 
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2014-08-18T21:11:54")
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  const [selectedInitialDate, setInitialSelectedDate] = React.useState(
+    new Date(new Date().setDate(new Date().getDate() - 7))
   );
 
-  const handleDateChange = date => {
-    setSelectedDate(date);
+  const [selectedEndDate, setEndSelectedDate] = React.useState(
+    new Date(new Date().setDate(new Date().getDate() - 1))
+  );
+
+  const handleDateChange = (event, option) => {
+    switch (option) {
+      case 1:
+        setInitialSelectedDate(
+          new Date(new Date().setDate(new Date().getDate() - 1))
+        );
+        break;
+      case 2:
+        setInitialSelectedDate(
+          new Date(new Date().setDate(new Date().getDate() - 7))
+        );
+        break;
+      case 3:
+        setInitialSelectedDate(
+          new Date(new Date().setDate(new Date().getDate() - 30))
+        );
+        break;
+      case 4:
+        setInitialSelectedDate(
+          new Date(new Date().setDate(new Date().getDate() - 30))
+        );
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -143,6 +192,7 @@ const Dashboard = props => {
               Dashboard
             </Typography>
             <Dropdown
+              classes={classes.periodDropdown}
               summary={
                 <Container className={classes.period}>
                   <div className={classes.flex}>
@@ -153,7 +203,12 @@ const Dashboard = props => {
                   </div>
 
                   <Typography className={classes.dropdownPeriodDate}>
-                    11 September 2018 - 14 September 2018
+                    {selectedInitialDate.getDate()}{" "}
+                    {months[selectedInitialDate.getMonth()]}{" "}
+                    {selectedInitialDate.getFullYear()} -{" "}
+                    {selectedEndDate.getDate()}{" "}
+                    {months[selectedEndDate.getMonth()]}{" "}
+                    {selectedEndDate.getFullYear()}
                   </Typography>
                 </Container>
               }
@@ -162,13 +217,21 @@ const Dashboard = props => {
                   <MenuList className={classes.menuList}>
                     <MenuItem>Today</MenuItem>
                     <Divider />
-                    <MenuItem>Yesterday</MenuItem>
+                    <MenuItem onClick={event => handleDateChange(event, 1)}>
+                      Yesterday
+                    </MenuItem>
                     <Divider />
-                    <MenuItem>Last 7 Day</MenuItem>
+                    <MenuItem onClick={event => handleDateChange(event, 2)}>
+                      Last 7 Day
+                    </MenuItem>
                     <Divider />
-                    <MenuItem>Last 30 Day</MenuItem>
+                    <MenuItem onClick={event => handleDateChange(event, 3)}>
+                      Last 30 Day
+                    </MenuItem>
                     <Divider />
-                    <MenuItem>Last Month</MenuItem>
+                    <MenuItem onClick={event => handleDateChange(event, 4)}>
+                      Last Month
+                    </MenuItem>
                     <Divider />
                     <MenuItem>Custom</MenuItem>
                     <Button
@@ -181,8 +244,8 @@ const Dashboard = props => {
                   </MenuList>
                   <Divider orientation="vertical" flexItem />
                   <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <DatePicker />
-                    <DatePicker />
+                    <DatePicker date={selectedInitialDate} />
+                    <DatePicker date={selectedEndDate} />
                   </MuiPickersUtilsProvider>
                 </Container>
               }
