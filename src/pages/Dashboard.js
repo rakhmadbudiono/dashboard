@@ -21,6 +21,7 @@ import DropdownMenu from "components/DropdownMenu";
 import DetailCard from "components/DetailCard";
 import ProductCard from "components/ProductCard";
 import trollImage from "assets/troll.svg";
+import productImage from "assets/product/p_1.png";
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -420,21 +421,26 @@ const Dashboard = props => {
                     content={
                       <Container>
                         <ProductCard
+                          top={true}
+                          image={productImage}
                           productName="[Product Name]"
                           price="XXX"
                           amountSold="[jml terjual]"
                         />
                         <ProductCard
+                          image={productImage}
                           productName="[Product Name]"
                           price="XXX"
                           amountSold="[jml terjual]"
                         />
                         <ProductCard
+                          image={productImage}
                           productName="[Product Name]"
                           price="XXX"
                           amountSold="[jml terjual]"
                         />
                         <ProductCard
+                          image={productImage}
                           productName="[Product Name]"
                           price="XXX"
                           amountSold="[jml terjual]"
@@ -447,21 +453,26 @@ const Dashboard = props => {
                     content={
                       <Container>
                         <ProductCard
+                          top={true}
+                          image={productImage}
                           productName="[Product Name]"
                           price="XXX"
                           amountSold="[jml terjual]"
                         />
                         <ProductCard
+                          image={productImage}
                           productName="[Product Name]"
                           price="XXX"
                           amountSold="[jml terjual]"
                         />
                         <ProductCard
+                          image={productImage}
                           productName="[Product Name]"
                           price="XXX"
                           amountSold="[jml terjual]"
                         />
                         <ProductCard
+                          image={productImage}
                           productName="[Product Name]"
                           price="XXX"
                           amountSold="[jml terjual]"
