@@ -174,7 +174,7 @@ const Dashboard = props => {
         break;
       case 4:
         setInitialSelectedDate(
-          new Date(new Date().setDate(new Date().getDate() - 30))
+          new Date(new Date().getFullYear(), new Date().getMonth(), 1)
         );
         break;
       default:
@@ -318,56 +318,48 @@ const Dashboard = props => {
                       <Bar
                         data={{
                           labels: [
-                            "January",
-                            "February",
-                            "March",
-                            "April",
-                            "May",
-                            "June",
-                            "July"
+                            "Mon",
+                            "Tue",
+                            "Wed",
+                            "Thu",
+                            "Fri",
+                            "Sat",
+                            "Sun"
                           ],
                           datasets: [
                             {
                               type: "line",
-                              label: "Expense for last year",
-                              stack: "Expense",
+                              label: "Gross",
+                              stack: "Profit",
                               data: [
-                                30000,
-                                80000,
-                                50000,
-                                100000,
-                                60000,
-                                40000,
-                                90000
-                              ]
-                            },
-                            {
-                              label: "Expense for this year",
-                              backgroundColor: "#6a82fb",
-                              stack: "Expense",
-                              data: [
-                                10000,
-                                30000,
-                                50000,
-                                80000,
-                                60000,
+                                25000,
+                                23000,
                                 20000,
-                                10000
+                                17000,
+                                20000,
+                                22000,
+                                23000
                               ]
                             },
                             {
-                              label: "Expense for last year",
-                              backgroundColor: "#fc5c7d",
-                              stack: "Expense",
+                              label: "Nett",
+                              backgroundColor: "#37B04C",
+                              stack: "Profit",
                               data: [
-                                30000,
-                                80000,
-                                50000,
-                                100000,
-                                60000,
-                                40000,
-                                90000
+                                22000,
+                                20000,
+                                18000,
+                                16000,
+                                18000,
+                                19000,
+                                21000
                               ]
+                            },
+                            {
+                              label: "APV",
+                              backgroundColor: "#289E45",
+                              stack: "Profit",
+                              data: [3000, 3000, 2000, 1000, 2000, 3000, 2000]
                             }
                           ]
                         }}
